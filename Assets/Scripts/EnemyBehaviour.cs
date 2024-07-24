@@ -10,7 +10,7 @@ public class EnemyBehaviour : MonoBehaviour
     public List<Transform> locations;
 
     public delegate void DestroyedEnemyEvent();
-    public event DestroyedEnemyEvent EnemyDestroyed; 
+    public event DestroyedEnemyEvent EnemyDestroyed;
 
     private int locationIndex = 0;
     private NavMeshAgent agent;

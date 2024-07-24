@@ -25,8 +25,7 @@ public class GameBehaviour : MonoBehaviour
             if (_itemCollected >= maxItems)
             {
                 labelText = "アイテムを全部みつけたね!";
-                _gameStatus = GameStatus.WinScreen ;
-                Time.timeScale = 0f;
+                StopLevel(GameStatus.WinScreen);
             }
             else
             {
@@ -48,8 +47,7 @@ public class GameBehaviour : MonoBehaviour
             if (_playerHP <= 0)
             {
                 labelText = "もうひとつライフが欲しい？";
-                _gameStatus = GameStatus.LossScreen;
-                Time.timeScale = 0f;
+                StopLevel(GameStatus.LossScreen);
             }
             else
             {
@@ -92,6 +90,12 @@ public class GameBehaviour : MonoBehaviour
                 RestartLevel();
             }
         }
+    }
+
+    void StopLevel(GameStatus status)
+    {
+        _gameStatus = status ;
+        Time.timeScale = 0f;
     }
 
     void RestartLevel()
