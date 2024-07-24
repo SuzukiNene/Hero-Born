@@ -127,6 +127,8 @@ MonoBehaviour:
   player: {fileID: 0}
   patrolRoute: {fileID: 0}
   locations: []
+  normalMaterial: {fileID: 2100000, guid: 5661be6a51910c54f89349b4a5e6b461, type: 2}
+  attackMaterial: {fileID: 2100000, guid: aa10519c7ce2e244d95e9feb26113204, type: 2}
 --- !u!195 &-1233350276425437661
 NavMeshAgent:
   m_ObjectHideFlags: 0

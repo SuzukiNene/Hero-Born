@@ -14,6 +14,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     private int locationIndex = 0;
     private NavMeshAgent agent;
+    [SerializeField] Material normalMaterial;
+    [SerializeField] Material attackMaterial;
 
     private int _lives = 3;
     public int EnemyLives
@@ -39,6 +41,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.Find("Player").transform;
+        patrolRoute = GameObject.Find("Patrol Route").transform;
 
         InitPatrolRoute();
         MoveToNextRoute();
@@ -63,6 +66,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             agent.destination = player.position;
             //Debug.Log("プレーヤーを検出した - 攻撃せよ！");
+            GetComponent<MeshRenderer>().material = attackMaterial;
         }
     }
 
@@ -72,6 +76,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             MoveToNextRoute();
             //Debug.Log("プレーヤーは領域外へ - パトロール続行！");
+            GetComponent<MeshRenderer>().material = normalMaterial;
         }
     }
 
@@ -86,8 +91,6 @@ public class EnemyBehaviour : MonoBehaviour
 
     void InitPatrolRoute()
     {
-        patrolRoute = GameObject.Find("Patrol Route").transform;
-
         locations.Clear();
         foreach(Transform child in patrolRoute)
         {
@@ -103,5 +106,6 @@ public class EnemyBehaviour : MonoBehaviour
         }
         agent.destination = locations[locationIndex].position;
         locationIndex = (locationIndex + 1) % locations.Count;
+        //Debug.Log("MoveToNextRoute()");
     }
 }
