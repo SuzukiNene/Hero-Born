@@ -70,6 +70,15 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
+    void OnTriggerStay(Collider other)
+    {
+        if (other.name == "Player")
+        {
+            agent.destination = player.position;
+            //Debug.Log("プレーヤーが逃げても追う");
+        }
+    }
+
     void OnTriggerExit(Collider other)
     {
         if (other.name == "Player")
