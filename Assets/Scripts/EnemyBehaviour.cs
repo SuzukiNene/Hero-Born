@@ -52,11 +52,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (agent.remainingDistance < 0.2f && !agent.pathPending)
         {
-            // Close to Locations, not Player
-            if (agent.destination != player.position)
-            {
-                MoveToNextRoute();
-            }
+            MoveToNextRoute();
         }
     }
 
@@ -95,6 +91,10 @@ public class EnemyBehaviour : MonoBehaviour
         {
             EnemyLives -= 1;
             //Debug.Log("命中！");
+        }
+        else if (collision.gameObject.name == "Player")
+        {
+            //Debug.Log("つかまえた！ - 攻撃中");
         }
     }
 
