@@ -79,7 +79,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (other.name == "Player")
         {
-            MoveToNextRoute();
+            RestoreCurrentRoute();
             //Debug.Log("プレーヤーは領域外へ - パトロール続行！");
             GetComponent<MeshRenderer>().material = normalMaterial;
         }
@@ -116,5 +116,17 @@ public class EnemyBehaviour : MonoBehaviour
         agent.destination = locations[locationIndex].position;
         locationIndex = (locationIndex + 1) % locations.Count;
         //Debug.Log("MoveToNextRoute()");
+    }
+
+    void RestoreCurrentRoute()
+    {
+        if (locations.Count == 0)
+        {
+            return;
+        }
+        locationIndex = (locationIndex + locations.Count - 1) % locations.Count;
+        agent.destination = locations[locationIndex].position;
+        locationIndex = (locationIndex + 1) % locations.Count;
+        //Debug.Log("RestoreCurrentRoute()");
     }
 }
