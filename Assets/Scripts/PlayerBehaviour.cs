@@ -45,7 +45,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             newBullet = Instantiate(bullet,
 //              this.transform.position + new Vector3(1, 0, 0),
-                this.transform.position + new Vector3(0, 0.5f, 0),
+                this.transform.position + new Vector3(0, 0, 0),
                 this.transform.rotation
             ) as GameObject;
         }
