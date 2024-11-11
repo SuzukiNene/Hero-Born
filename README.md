@@ -6,7 +6,17 @@
 - Learning C# by Developing Games with Unity 2020
 	- https://github.com/PacktPublishing/Learning-C-8-by-Developing-Games-with-Unity-2020?tab=readme-ov-file
 
-# 変更点
+# スクリーンショット
+![Hero-Born](https://github.com/user-attachments/assets/441e1960-fb41-4e66-9057-99099734af29)
+
+# 操作方法
+- WASDキーまたは上下左右の矢印キーで、前後の移動と左右の方向転換を行います。
+- マウス左ボタン押下で、弾を発射します。
+- Spaceキーでジャンプします。
+- フィールドの四隅にある回転するアイテムをすべて取得すると、勝ち。
+- 敵(Enemy)に見つかると追いかけてくる。追いつかれるとHPが減り、０になれば負け。
+
+# オリジナルからの変更点
 - Enemyをプレハブ化して、試合開始時に塔の上に出現するようにした。
 　また、弾を受けてEnemyが消えた時に、新たなEnemyが再度出現を繰り返すようにした。
 - Enemyは、Playerを見つけた時にPlayerが居た「座標」に対して向かってくるだけだったが、
@@ -15,3 +25,8 @@
 - Enemyは、追っていたPlayerが検知範囲から逃げ出した時、直前に目指していたパトロールルートに戻るようにした。
 - Playerは、ジャンプ処理はFixedUpdate()ではなくUpdate()の時点で実行するようにした。
 - Playerの撃つ弾が、物体をすり抜けてしまう場合があったので、BulletのRigidbody->Collision Detection=Continuousに変更した。
+
+# 開発環境
+- Unity 2020.3.48f1
+
+EOF
